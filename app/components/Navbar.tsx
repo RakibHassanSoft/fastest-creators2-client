@@ -26,7 +26,7 @@ const Navbar = () => {
     // },
     {
       name: "Services",
-      href: "/services",
+      href: "services",
       children: [
         { name: "Web Development", href: "/web-development-service" },
         { name: "Logo Animation", href: "/logo-animation" },

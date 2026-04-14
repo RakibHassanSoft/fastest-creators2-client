@@ -56,7 +56,7 @@ const ServiceAPage = () => {
 
           <a
             href="/web-development-service"
-            className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:gap-3 transition"
+            className="inline-flex items-center gap-2 text-sm font-medium text-blue-600  hover:gap-3 transition"
           >
             View Details <ArrowIcon />
           </a>
@@ -102,7 +102,7 @@ const ServiceAPage = () => {
       </div>
 
       {/* FINAL CTA */}
-      <div className="max-w-4xl mx-auto text-center py-20 px-6">
+      <div className="max-w-6xl mx-auto text-center py-20 px-6">
 
         <h2 className="text-3xl md:text-4xl font-semibold text-black">
           Have a project in mind?
