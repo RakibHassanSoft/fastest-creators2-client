@@ -69,7 +69,7 @@ export default function AboutServices() {
             <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center border border-blue-500/30">
               <Hexagon className="text-blue-400 fill-blue-400/20" size={20} />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-500 leading-tight">
               One Platform, Deep Insight Why Choose Bootsland
             </h2>
             <p className="text-blue-400 font-semibold text-xs tracking-[0.2em] uppercase">

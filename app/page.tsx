@@ -4,8 +4,8 @@ import AboutServices from './components/AboutService';
 import FounderIntro from './components/FounderIntro';
 import ContractUs from './components/contractUs';
 import Hero from './components/Hero';
-import PreviousWork from './components/PreviousWork';
-import OurWorks from './components/OurWorks';
+import Reviews from './components/Reviews';
+
 
 const homePage = () => {
   return (
@@ -15,8 +15,7 @@ const homePage = () => {
       <Services/>
       <AboutServices/>
       <FounderIntro/>
-      <PreviousWork/>
-      <OurWorks/>
+      <Reviews/>
       <ContractUs/>
 
       

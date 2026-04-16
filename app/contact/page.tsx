@@ -3,7 +3,7 @@ import ContactUs from '../components/contractUs';
 
 const ContractUsPage = () => {
     return (
-        <div>
+        <div className='mt-16'>
             <ContactUs/>
         </div>
     );

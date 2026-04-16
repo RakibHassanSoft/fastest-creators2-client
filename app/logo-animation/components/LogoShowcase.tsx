@@ -19,11 +19,7 @@ const videos: VideoItem[] = [
 export default function LogoShowcase() {
   return (
     <section className="relative py-24 px-6 bg-white overflow-hidden">
-
-   
-
       <div className="relative max-w-6xl mx-auto">
-
         {/* HEADER */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900">
@@ -36,13 +32,11 @@ export default function LogoShowcase() {
 
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
           {videos.map((item, index) => (
             <div
               key={index}
               className="group text-black  border border-blue-100  shadow-sm  "
             >
-
               {/* TITLE */}
               <div className="px-6 pt-6 pb-3">
                 <h3 className="text-xl font-semibold text-black ">
@@ -53,30 +47,28 @@ export default function LogoShowcase() {
 
               {/* SQUARE VIDEO */}
               <div className="pb-3">
-  <div className="relative w-full aspect-video bg-black overflow-hidden border border-blue-100 rounded-xl">
-
-    <iframe
-      className="absolute inset-0 w-full h-full"
-      src={`https://www.youtube.com/embed/${item.url}?controls=1&modestbranding=1&rel=0&iv_load_policy=3`}
-      title={item.title}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
-
-  </div>
-</div>
-
-              {/* LABEL */}
-              <div className="flex justify-end px-3 pb-2">
-                <span className="text-lg font-semibold text-blue-600 bg-blue-50 border border-blue-100 px-3 py-1 ">
-                  Trailer
-                </span>
+                <div className="relative w-full aspect-video bg-black overflow-hidden border border-blue-100 rounded-xl">
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${item.url}?controls=1&modestbranding=1&rel=0&iv_load_policy=3`}
+                    title={item.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
               </div>
 
+              {/* LABEL */}
+              <div className="flex justify-center px-3 pb-2">
+                
+                <button className="px-4 py-2 bg-blue-600 text-white text-sm font-semibold  hover:bg-blue-500 transition">
+                  Order now
+                </button>
+               
+              </div>
             </div>
           ))}
-
         </div>
       </div>
     </section>
