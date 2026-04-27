@@ -73,6 +73,7 @@ const Hero = () => {
         </div>
 
         {/* RIGHT */}
+        {/* RIGHT */}
         <div className="grid grid-cols-2 gap-6">
           {stats.map((stat) => {
             const Icon = stat.icon;
@@ -80,27 +81,59 @@ const Hero = () => {
             return (
               <div
                 key={stat.id}
-                className="p-6 border border-gray-200 rounded-lg hover:border-blue-600 transition"
+                className="
+          p-6 rounded-2xl
+          bg-linear-to-br from-blue-950 via-blue-900 to-blue-950
+          border border-white/10
+          text-white
+          shadow-sm shadow-blue-950/40
+          hover:shadow-blue-900/50
+          hover:-translate-y-1
+          transition-all duration-300
+        "
               >
-                <div className="w-9 h-9 flex items-center justify-center border border-blue-200 text-blue-600 rounded-md mb-4">
-                  <Icon size={16} />
+                {/* ICON */}
+                <div
+                  className="
+          w-10 h-10 flex items-center justify-center
+          rounded-xl mb-4
+          bg-white/10 border border-white/10
+        "
+                >
+                  <Icon size={18} className="text-white" />
                 </div>
 
-                <h3 className="text-2xl font-semibold text-black">
+                {/* VALUE */}
+                <h3 className="text-3xl font-bold text-white tracking-tight">
                   {stat.value}
                 </h3>
-                <p className="text-sm text-gray-500 mt-1">{stat.label}</p>
+
+                {/* LABEL */}
+                <p className="text-sm text-blue-200 mt-1">{stat.label}</p>
               </div>
             );
           })}
 
           {/* TRUST BLOCK */}
-          <div className="col-span-2 border border-gray-200 rounded-lg p-6 flex justify-between items-center hover:border-blue-600 transition">
+          <div
+            className="
+    col-span-2
+    rounded-2xl p-6
+    bg-linear-to-r from-blue-950 via-blue-900 to-blue-950
+    border border-white/10
+    text-white
+    flex justify-between items-center
+    shadow-sm shadow-blue-950/40
+    hover:shadow-blue-900/50
+    transition-all duration-300
+  "
+          >
             <div>
-              <p className="text-xs text-blue-600 uppercase tracking-wide">
+              <p className="text-xs text-blue-300 uppercase tracking-widest">
                 Trusted Worldwide
               </p>
-              <p className="text-base font-semibold mt-1 text-black">
+
+              <p className="text-lg font-semibold mt-1 text-white">
                 Top Rated Digital Studio
               </p>
             </div>
@@ -111,12 +144,21 @@ const Hero = () => {
                   key={i}
                   src={`https://i.pravatar.cc/100?img=${i + 10}`}
                   alt={`Client avatar ${i}`}
-                  width={32}
-                  height={32}
-                  className="rounded-full border border-white"
+                  width={34}
+                  height={34}
+                  className="rounded-full border border-blue-900"
                 />
               ))}
-              <div className="w-8 h-8 rounded-full bg-blue-600 text-white text-[10px] flex items-center justify-center">
+
+              <div
+                className="
+        w-9 h-9 rounded-full
+        bg-white text-blue-900
+        text-[11px] font-bold
+        flex items-center justify-center
+        border border-blue-900
+      "
+              >
                 +1k
               </div>
             </div>
