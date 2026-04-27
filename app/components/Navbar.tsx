@@ -17,6 +17,7 @@ const Navbar = () => {
         { name: "Web Development", href: "/web-development-service" },
         { name: "Logo Animation", href: "/logo-animation" },
         { name: "Apify Development", href: "/apify-development" },
+        { name: "Digital Marketing", href: "/digital-marketing" },
       ],
     },
     { name: "About", href: "/about" },
