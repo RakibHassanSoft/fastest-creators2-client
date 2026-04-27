@@ -67,7 +67,7 @@ const Services = () => {
   }, [isAutoPlaying, services.length]);
 
   return (
-    <section className="py-24 font-sans">
+    <section className="py-24 mb-20 font-sans">
       <div className="max-w-7xl mx-auto px-6">
         {/* HEADER */}
         <div className="max-w-2xl mb-20">
