@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import axios from "axios";
 import { ArrowRight, Rocket, ShieldCheck, Zap } from "lucide-react";
 
 type Preview = {
@@ -15,9 +17,8 @@ const WebsiteHero: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("/previews.json");
-        const data = await res.json();
-        setPreviews(data);
+        const res = await axios.get("/previews.json");
+        setPreviews(res.data);
       } catch (err) {
         console.error("Failed to load previews:", err);
       }
@@ -38,34 +39,30 @@ const WebsiteHero: React.FC = () => {
               We design & build{" "}
               <span className="text-blue-600">
                 high-converting SaaS, LMS & E-commerce platforms
-              </span>{" "}
-              that scale with your business.
+              </span>
             </h1>
 
             <p className="mt-5 text-gray-600 max-w-xl mx-auto lg:mx-0">
-              We help founders turn ideas into powerful digital products — with
-              modern UI, scalable architecture, and conversion-driven design.
+              We help founders turn ideas into powerful digital products.
             </p>
 
-            {/* FEATURES */}
             <div className="mt-6 space-y-3 text-sm text-gray-700">
               <div className="flex items-center gap-2 justify-center lg:justify-start">
                 <Zap size={14} className="text-blue-600" />
-                Fast, production-ready development
+                Fast development
               </div>
               <div className="flex items-center gap-2 justify-center lg:justify-start">
                 <ShieldCheck size={14} className="text-blue-600" />
-                Secure & scalable architecture
+                Secure architecture
               </div>
               <div className="flex items-center gap-2 justify-center lg:justify-start">
                 <Rocket size={14} className="text-blue-600" />
-                Built for growth & conversions
+                Built for growth
               </div>
             </div>
 
-            {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start">
-              <button className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full text-sm font-medium shadow-md flex items-center justify-center gap-2">
+              <button className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full text-sm font-medium shadow-md flex items-center gap-2">
                 Start Project <ArrowRight size={16} />
               </button>
 
