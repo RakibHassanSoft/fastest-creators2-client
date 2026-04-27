@@ -18,6 +18,7 @@ const Navbar = () => {
       children: [
         { name: "Web Development", href: "/web-development-service" },
         { name: "Logo Animation", href: "/logo-animation" },
+        { name: "apify development", href: "/apify-development" },
       ],
     },
     { name: "Contact", href: "/contact" },
