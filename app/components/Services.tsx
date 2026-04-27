@@ -1,16 +1,15 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect } from 'react';
-import { 
-  Code2, 
-  Smartphone, 
-  Clapperboard, 
-  Palette, 
-  Megaphone, 
+import React, { useState, useEffect } from "react";
+import {
+  Code2,
+  Smartphone,
+  Clapperboard,
+  Palette,
+  Megaphone,
   Hexagon,
-  ArrowUpRight,
-  CheckCircle2
-} from 'lucide-react';
+  CheckCircle2,
+} from "lucide-react";
 
 const Services = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -19,81 +18,75 @@ const Services = () => {
   const services = [
     {
       title: "Web Development",
-      description: "High-performance, SEO-optimized web applications built with modern frameworks like Next.js and React.",
-      icon: <Code2 className="w-6 h-6" />,
-      features: ["Custom UI/UX", "API Integration", "Cloud Hosting"]
+      description: "High-performance web apps using Next.js & React.",
+      icon: <Code2 size={30} />,
+      features: ["Custom UI", "API", "Cloud"],
     },
     {
       title: "App Development",
-      description: "Seamless iOS and Android experiences tailored to your business needs with robust performance.",
-      icon: <Smartphone className="w-6 h-6" />,
-      features: ["Native Performance", "Cross-Platform", "Secure Auth"]
+      description: "iOS & Android apps with seamless performance.",
+      icon: <Smartphone size={30} />,
+      features: ["Native", "Cross-platform", "Secure"],
     },
     {
       title: "Logo Animation",
-      description: "Dynamic motion graphics that breathe life into your brand and make a lasting first impression.",
-      icon: <Hexagon className="w-6 h-6" />,
-      features: ["2D/3D Motion", "Smooth Loops", "SVG Export"]
+      description: "Motion graphics that elevate your brand identity.",
+      icon: <Hexagon size={30} />,
+      features: ["2D/3D", "Smooth", "Export"],
     },
     {
       title: "Logo Design",
-      description: "Crafting iconic visual identities that communicate your brand's core values at a single glance.",
-      icon: <Palette className="w-6 h-6" />,
-      features: ["Brand Guidelines", "Vector Assets", "Unique Concepts"]
+      description: "Unique and memorable brand identities.",
+      icon: <Palette size={30} />,
+      features: ["Brand Kit", "Vector", "Creative"],
     },
     {
       title: "Video Editing",
-      description: "Professional storytelling through precise cutting, color grading, and immersive sound design.",
-      icon: <Clapperboard className="w-6 h-6" />,
-      features: ["4K Post-Prod", "Color Grading", "Social Optimization"]
+      description: "Professional storytelling with cinematic quality.",
+      icon: <Clapperboard size={30} />,
+      features: ["4K", "Color", "Social"],
     },
     {
       title: "Digital Marketing",
-      description: "Strategic campaigns designed to scale your reach and maximize conversion rates effectively.",
-      icon: <Megaphone className="w-6 h-6" />,
-      features: ["SEO Strategies", "PPC Ads", "Social Growth"]
-    }
+      description: "Growth-driven campaigns for maximum ROI.",
+      icon: <Megaphone size={30} />,
+      features: ["SEO", "Ads", "Growth"],
+    },
   ];
 
-  // Automatic Cycling Logic
   useEffect(() => {
-    let interval : any;
+    let interval: any;
+
     if (isAutoPlaying) {
       interval = setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % services.length);
-      }, 3000); // Changes every 3 seconds
+      }, 3000);
     }
+
     return () => clearInterval(interval);
   }, [isAutoPlaying, services.length]);
 
   return (
-    <section className="py-24 bg-white text-black font-sans selection:bg-blue-100">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        
-        {/* Header Area */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-gray-100 pb-12">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-12 h-0.5 bg-blue-600"></span>
-              <span className="text-blue-600 font-bold tracking-widest uppercase text-xs">Expert Services</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold  tracking-tight leading-none mb-6">
-              Our <span className="text-blue-600">Premium</span> Services.
-            </h2>
-            <p className="text-gray-500 text-lg md:text-xl font-medium leading-relaxed">
-              Experience the power of dedicated expertise. We automatically showcase our diverse skills, handled by industry-leading specialists.
-            </p>
-          </div>
-          <div className="hidden lg:block pb-2">
-            
-          </div>
+    <section className="py-24 font-sans">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* HEADER */}
+        <div className="max-w-2xl mb-20">
+          <p className="text-blue-600 text-xs font-bold tracking-widest uppercase mb-3">
+            Expert Services
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-5">
+            Our <span className="text-blue-600">Premium</span> Services
+          </h2>
+          <p className="text-gray-500 text-lg">
+            We provide scalable and high-quality digital solutions.
+          </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
           {services.map((service, index) => {
             const isActive = activeIndex === index;
-            
+
             return (
               <div
                 key={index}
@@ -102,88 +95,63 @@ const Services = () => {
                   setActiveIndex(index);
                 }}
                 onMouseLeave={() => setIsAutoPlaying(true)}
-                className={`group relative overflow-hidden rounded-3xl p-8 border transition-all duration-700 cursor-default
-                  ${isActive 
-                    ? 'bg-blue-600 border-blue-600 shadow-2xl shadow-blue-200 -translate-y-3' 
-                    : 'bg-white border-gray-100'}`}
+                className="relative"
               >
-                {/* Header inside card */}
-                <div className="flex justify-between items-start mb-10">
-                  <div className={`p-4 rounded-2xl transition-all duration-500 
-                    ${isActive ? 'bg-white text-blue-600 shadow-lg' : 'bg-gray-50 text-black'}`}>
+                {/* ICON */}
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-10">
+                  <div
+                    className={`
+                      w-24 h-24 rounded-full flex items-center justify-center text-white
+                      bg-linear-to-r from-blue-500 to-blue-600
+                      transition-all duration-300
+                      ${isActive ? "scale-125 shadow-xl" : "scale-100"}
+                    `}
+                  >
                     {service.icon}
-                  </div>
-                  <div className={`transition-all duration-500 ${isActive ? 'text-white opacity-100 translate-x-0' : 'text-gray-200 opacity-0 -translate-x-4'}`}>
-                    <ArrowUpRight size={28} />
                   </div>
                 </div>
 
-                {/* Title & Body */}
-                <div className="relative z-10">
-                  <h3 className={`text-2xl font-bold mb-4 transition-colors duration-500 font-blue-600
-                    ${isActive ? 'text-white' : 'text-gray-900'}
-                    `}>
+                {/* CARD */}
+                <div
+                  className={`
+                    pt-20 pb-10 px-8 text-center
+                    border-4 rounded-[80px]
+                    transition-all duration-300
+                    ${
+                      isActive
+                        ? "border-blue-600 bg-white border-8 shadow-xl scale-105 -translate-y-2"
+                        : "border-blue-400 bg-transparent border-2"
+                    }
+                  `}
+                >
+                  <h3 className="text-xl font-bold text-black mb-4">
                     {service.title}
                   </h3>
-                  <p className={`text-sm leading-relaxed mb-6 transition-colors duration-500
-                    ${isActive ? 'text-blue-50' : 'text-gray-500'}`}>
+
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
                     {service.description}
                   </p>
 
-                  {/* Feature Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feature, fIdx) => (
-                      <div 
-                        key={fIdx}
-                        className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-500
-                          ${isActive ? 'bg-white/10 text-white' : 'bg-gray-100 text-gray-600'}`}
+                  {/* FEATURES */}
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {service.features.map((f, i) => (
+                      <span
+                        key={i}
+                        className="flex items-center gap-1 px-3 py-1 text-[10px] font-semibold rounded-full bg-blue-100 text-blue-700"
                       >
                         <CheckCircle2 size={10} />
-                        {feature}
-                      </div>
+                        {f}
+                      </span>
                     ))}
                   </div>
-                </div>
-
-                {/* Progress bar for active card */}
-                {isActive && isAutoPlaying && (
-                  <div className="absolute bottom-0 left-0 h-1 bg-white/30 animate-progress-grow origin-left w-full"></div>
-                )}
-
-                {/* Subtle background number */}
-                <div className={`absolute -bottom-6 -right-6 text-9xl font-black transition-all duration-1000 select-none pointer-events-none
-                  ${isActive ? 'text-white opacity-5 translate-y-0 scale-110' : 'text-gray-50 opacity-0 translate-y-10'}`}>
-                  {index + 1}
                 </div>
               </div>
             );
           })}
         </div>
-
-        {/* Mobile Indicator */}
-        <div className="mt-12 flex justify-center gap-2 lg:hidden">
-          {services.map((_, i) => (
-            <div 
-              key={i} 
-              className={`h-1.5 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-gray-200'}`}
-            />
-          ))}
-        </div>
-
       </div>
-
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes progress-grow {
-          from { transform: scaleX(0); }
-          to { transform: scaleX(1); }
-        }
-        .animate-progress-grow {
-          animation: progress-grow 3s linear infinite;
-        }
-      `}} />
     </section>
   );
 };
-
 
 export default Services;
