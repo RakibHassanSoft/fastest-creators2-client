@@ -2,193 +2,132 @@
 
 import React from "react";
 
-/* ---------------- ICON ---------------- */
-
-const SparklesIcon = ({ className = "" }) => (
-  <svg
-    className={className}
-    width="14"
-    height="14"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-    <path
-      d="M12 2l1.5 6L19 10l-5.5 2L12 18l-1.5-6L5 10l5.5-2L12 2Z"
-      stroke="currentColor"
-      strokeWidth="2"
-    />
-  </svg>
-);
-
-/* ---------------- TEAM ---------------- */
-
-const team = [
-  {
-    name: "Rakib Hassan",
-    role: "Founder & Full Stack Developer",
-    desc: "Leads architecture, system design, and product development.",
-  },
-  {
-    name: "UI Designer",
-    role: "UI/UX Designer",
-    desc: "Crafts clean, conversion-driven and modern interfaces.",
-  },
-  {
-    name: "Marketing Lead",
-    role: "Digital Growth Strategist",
-    desc: "Handles SEO, ads, funnels and acquisition systems.",
-  },
-  {
-    name: "Video Editor",
-    role: "Creative Media Specialist",
-    desc: "Produces high-impact video ads and brand content.",
-  },
-  {
-    name: "Automation Engineer",
-    role: "Apify & Systems Developer",
-    desc: "Builds scraping, automation and workflow systems.",
-  },
-  {
-    name: "Brand Designer",
-    role: "Visual Identity Designer",
-    desc: "Creates logos, animations and full brand systems.",
-  },
+/* ---------------- DATA ---------------- */
+const departments = [
+  "Product Strategy & Leadership",
+  "Full Stack Engineering",
+  "Frontend Engineering",
+  "Backend Architecture",
+  "UI/UX Design System",
+  "Motion & Brand Design",
+  "Growth & Marketing",
+  "Performance Advertising",
+  "Content & Video Production",
+  "Automation & Scraping Systems",
+  "API Integration Engineering",
+  "DevOps & Infrastructure",
+  "QA & Testing Systems",
+  "Client Success & Delivery",
+  "Business Development",
 ];
 
 /* ---------------- PAGE ---------------- */
-
-const TeamPage: React.FC = () => {
+const TeamPage = () => {
   return (
-    <section className="relative w-full bg-linear-to-b from-white via-blue-50/30 to-white text-black py-28 px-6 lg:px-24 overflow-hidden">
+    <section className="bg-white text-gray-900 py-28 px-6 lg:px-24">
 
-      {/* soft glow background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-160 h-160 bg-blue-200/30 blur-[140px] rounded-full" />
-        <div className="absolute bottom-0 right-0 w-120 h-120 bg-blue-100/40 blur-[120px] rounded-full" />
-      </div>
-
-      {/* HERO */}
-      <div className="relative max-w-4xl mx-auto text-center">
-
-        <p className="inline-flex items-center gap-2 text-blue-600 text-sm font-medium bg-blue-50 px-4 py-1.5 rounded-full border border-blue-100">
-          <SparklesIcon className="text-blue-600" />
-          Meet Our Team
+      {/* ================= SECTION 1: HERO ================= */}
+      <div className="max-w-3xl mx-auto text-center">
+        <p className="text-xs font-medium text-blue-600 bg-blue-50 border border-blue-100 px-3 py-1 rounded-full inline-block">
+          Company Overview
         </p>
 
-        <h1 className="text-4xl md:text-5xl font-semibold mt-6 leading-tight">
-          The minds behind our{" "}
-          <span className="text-blue-600">digital products</span>
+        <h1 className="mt-6 text-4xl md:text-5xl font-semibold tracking-tight">
+          Built like a real{" "}
+          <span className="text-blue-600">product engineering company</span>
         </h1>
 
-        <p className="text-gray-600 mt-5 text-base md:text-lg leading-relaxed">
-          A multidisciplinary team of engineers, designers and marketers
-          building scalable, high-performance digital experiences.
+        <p className="mt-5 text-gray-600 text-lg leading-relaxed">
+          We are a structured digital studio focused on scalable SaaS systems,
+          automation tools, and high-performance web platforms.
         </p>
       </div>
 
-      {/* CULTURE */}
-      <div className="relative max-w-6xl mx-auto mt-24 grid md:grid-cols-2 gap-12">
+      {/* ================= SECTION 2: HOW WE WORK ================= */}
+      <div className="max-w-6xl mx-auto mt-24 grid md:grid-cols-2 gap-10">
 
         <div>
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            Our Culture
-          </h2>
+          <h2 className="text-xl font-semibold">How we operate</h2>
 
-          <p className="text-gray-600 mt-5 leading-relaxed">
-            We focus on performance, clarity, and long-term scalability.
-            Every product is designed with attention to detail, clean code,
-            and conversion-focused UX principles.
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            Every project is handled by a dedicated cross-functional team.
+            We follow a product-engineering approach where design, development,
+            and growth are integrated from day one.
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            {["Remote Team", "Fast Execution", "Quality First"].map(
-              (item) => (
-                <span
-                  key={item}
-                  className="px-4 py-2 text-sm bg-white border border-gray-200 rounded-full shadow-sm hover:border-blue-300 transition"
-                >
-                  {item}
-                </span>
-              )
-            )}
+          <div className="mt-6 flex flex-wrap gap-2">
+            {["System-driven", "Scalable", "Execution-focused"].map((t) => (
+              <span
+                key={t}
+                className="text-xs px-3 py-1 rounded-full border border-gray-200 bg-gray-50"
+              >
+                {t}
+              </span>
+            ))}
           </div>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
-          <h3 className="text-lg font-semibold text-blue-600">
-            What We Focus On
+        <div className="border border-gray-200 rounded-2xl p-6 bg-gray-50">
+          <h3 className="text-sm font-semibold text-blue-600">
+            Delivery Framework
           </h3>
 
-          <ul className="mt-6 space-y-3 text-sm text-gray-700">
-            <li>✔ Scalable system architecture</li>
-            <li>✔ High-performance web apps</li>
-            <li>✔ Conversion-focused UI/UX</li>
-            <li>✔ Automation & integrations</li>
-            <li>✔ Brand identity systems</li>
+          <ul className="mt-4 space-y-2 text-sm text-gray-700">
+            <li>• Agile product development cycle</li>
+            <li>• Scalable system architecture</li>
+            <li>• Continuous deployment workflow</li>
+            <li>• Conversion-driven UI/UX system</li>
+            <li>• Performance-first engineering</li>
           </ul>
         </div>
       </div>
 
-      {/* TEAM GRID */}
-      <div className="relative max-w-6xl mx-auto mt-28">
+      {/* ================= SECTION 3: DEPARTMENTS ================= */}
+      <div className="max-w-6xl mx-auto mt-28">
 
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold">
-            Meet the Team
+          <h2 className="text-3xl font-semibold">
+            Dedicated Teams & Departments
           </h2>
+
           <p className="text-gray-600 mt-3">
-            Specialists across engineering, design, and growth
+            Specialized units working together as a single engineering system
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
 
-          {team.map((member, i) => (
+          {departments.map((item, i) => (
             <div
               key={i}
-              className="group relative bg-white border border-gray-200 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+              className="border border-gray-200 rounded-xl p-5 bg-white hover:border-blue-300 hover:shadow-md transition"
             >
-
-              {/* glow effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-blue-50 rounded-2xl blur-xl" />
-
-              <div className="relative">
-
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-semibold">
-                  {member.name.charAt(0)}
-                </div>
-
-                <h3 className="text-lg font-semibold mt-4 group-hover:text-blue-600 transition">
-                  {member.name}
-                </h3>
-
-                <p className="text-sm text-blue-600 mt-1">
-                  {member.role}
-                </p>
-
-                <p className="text-sm text-gray-600 mt-3 leading-relaxed">
-                  {member.desc}
-                </p>
-
-              </div>
+              <p className="text-sm font-medium text-gray-800">
+                {item}
+              </p>
             </div>
           ))}
 
         </div>
       </div>
 
-      {/* CTA */}
-      <div className="relative max-w-4xl mx-auto text-center mt-28">
+      {/* ================= SECTION 4: FINAL CTA ================= */}
+      <div className="max-w-3xl mx-auto text-center mt-28">
 
         <h2 className="text-3xl md:text-4xl font-semibold">
-          Build with a team that thinks like product engineers
+          A structured team built for scalable products
         </h2>
 
-        <p className="text-gray-600 mt-4 leading-relaxed">
-          We don’t just build websites — we design scalable digital systems
-          that grow with your business.
+        <p className="mt-4 text-gray-600 leading-relaxed">
+          We don’t work like freelancers — we operate like a product company
+          with engineering discipline and execution systems.
         </p>
 
+        <div className="mt-10 flex justify-center">
+          <button className="px-7 py-3 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition">
+            Start Your Project
+          </button>
+        </div>
       </div>
 
     </section>

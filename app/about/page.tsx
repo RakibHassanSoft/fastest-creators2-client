@@ -7,9 +7,10 @@ import {
   Video,
   Bot,
   Sparkles,
+  CheckCircle2,
 } from "lucide-react";
 
-const AboutPage = () => {
+/* ---------------- SERVICES ---------------- */
   const services = [
     {
       title: "Web Development",
@@ -42,108 +43,144 @@ const AboutPage = () => {
       icon: Video,
     },
   ];
+/* ---------------- PAGE ---------------- */
 
+const AboutPage = () => {
   return (
-    <section className="w-full mt-12 bg-white text-black py-24 px-6 lg:px-20">
+    <section className="bg-white text-black">
 
-      {/* HEADER */}
-      <div className="max-w-4xl mx-auto text-center">
+      {/* ================= HERO ================= */}
+      <div className="max-w-6xl mx-auto px-6 pt-28 pb-16">
+        <div className="max-w-3xl">
 
-        <h1 className="text-4xl md:text-5xl font-semibold mt-4 leading-tight">
-          We build <span className="text-blue-600">digital products</span> that
-          help businesses grow faster.
-        </h1>
-
-        <p className="text-gray-600 mt-6 text-base md:text-lg">
-          We are a full-service digital agency specializing in web development,
-          branding, automation, and creative production. Our goal is to turn
-          ideas into powerful digital experiences.
-        </p>
-      </div>
-
-      {/* MISSION SECTION */}
-      <div className="max-w-5xl mx-auto mt-20 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            Our Mission
-          </h2>
-          <p className="text-gray-600 mt-4 leading-relaxed">
-            We help startups, businesses, and creators build strong digital
-            presence with high-quality design and scalable development.
-            Every project we take is focused on performance, conversion,
-            and long-term growth.
+          <p className="text-sm font-medium text-blue-600">
+            Digital Product Studio
           </p>
 
-          <div className="mt-6 flex gap-3">
-            <span className="px-4 py-2 text-sm bg-blue-50 text-blue-600 rounded-full border border-blue-100">
-              Fast Delivery
-            </span>
-            <span className="px-4 py-2 text-sm bg-blue-50 text-blue-600 rounded-full border border-blue-100">
-              Premium Quality
-            </span>
-            <span className="px-4 py-2 text-sm bg-blue-50 text-blue-600 rounded-full border border-blue-100">
-              Scalable Systems
-            </span>
-          </div>
-        </div>
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight mt-4">
+            We design and build
+            <span className="text-blue-600"> scalable digital products </span>
+            for modern businesses.
+          </h1>
 
-        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
-          <h3 className="text-xl font-semibold text-blue-600">
-            Why Choose Us?
-          </h3>
-          <ul className="mt-5 space-y-3 text-gray-700 text-sm">
-            <li>✔ Modern UI/UX design approach</li>
-            <li>✔ Clean & scalable code architecture</li>
-            <li>✔ Marketing-focused development</li>
-            <li>✔ End-to-end digital solutions</li>
-            <li>✔ Affordable & fast delivery</li>
-          </ul>
+          <p className="text-gray-600 mt-6 text-base leading-relaxed">
+            We help startups and companies turn ideas into production-ready
+            systems with clean design, scalable architecture, and conversion-focused UX.
+          </p>
+
         </div>
       </div>
 
-      {/* SERVICES GRID */}
-      <div className="max-w-6xl mx-auto mt-24">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold">
-            Our Services
+      {/* ================= TRUST SECTION ================= */}
+      <div className="border-y border-gray-100 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-8">
+
+          {[
+            "Production-ready code quality",
+            "Performance-first architecture",
+            "Business-focused UI/UX",
+          ].map((item) => (
+            <div key={item} className="flex items-start gap-3">
+              <CheckCircle2 className="text-blue-600 mt-1" size={18} />
+              <p className="text-sm text-gray-700">{item}</p>
+            </div>
+          ))}
+
+        </div>
+      </div>
+
+      {/* ================= SERVICES ================= */}
+      <div className="max-w-6xl mx-auto px-6 py-24">
+
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-semibold">
+            Core Services
           </h2>
           <p className="text-gray-600 mt-3">
-            Everything you need to build and grow your digital presence
+            We provide end-to-end digital solutions for building and scaling products.
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+
           {services.map((s, i) => (
             <div
               key={i}
-              className="group border border-gray-200 rounded-2xl p-6 bg-white hover:border-blue-300 hover:shadow-md transition"
+              className="border border-gray-200 rounded-xl p-6 hover:border-gray-300 transition"
             >
-              <s.icon className="text-blue-600" size={26} />
+              <s.icon className="text-blue-600" size={22} />
 
-              <h3 className="text-lg font-semibold mt-4 group-hover:text-blue-600 transition">
+              <h3 className="text-lg font-medium mt-4">
                 {s.title}
               </h3>
 
-              <p className="text-gray-600 text-sm mt-2">{s.desc}</p>
+              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+                {s.desc}
+              </p>
             </div>
           ))}
+
         </div>
       </div>
 
-      {/* CTA SECTION */}
-      <div className="max-w-4xl mx-auto text-center mt-24">
+      {/* ================= PROCESS ================= */}
+      <div className="bg-black text-white">
+        <div className="max-w-6xl mx-auto px-6 py-20">
+
+          <h2 className="text-3xl font-semibold">
+            How we work
+          </h2>
+
+          <p className="text-gray-300 mt-3 max-w-2xl">
+            A structured process focused on clarity, execution and measurable results.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+
+            {[
+              {
+                title: "1. Discovery",
+                desc: "We understand your business, goals and technical needs.",
+              },
+              {
+                title: "2. Build",
+                desc: "We design and develop scalable, production-ready systems.",
+              },
+              {
+                title: "3. Launch & Optimize",
+                desc: "We deploy, monitor and continuously improve performance.",
+              },
+            ].map((step) => (
+              <div key={step.title} className="border border-white/10 p-6 rounded-xl">
+                <h3 className="font-medium">{step.title}</h3>
+                <p className="text-sm text-gray-300 mt-2 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* ================= CTA ================= */}
+      <div className="max-w-6xl mx-auto px-6 py-24 text-center">
+
         <h2 className="text-3xl md:text-4xl font-semibold">
-          Let’s build something amazing together
+          Ready to build your product?
         </h2>
 
         <p className="text-gray-600 mt-4">
-          Have a project in mind? We’re ready to turn your idea into reality.
+          Let’s turn your idea into a scalable digital solution.
         </p>
 
-        <button className="mt-8 bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-sm font-medium shadow-md transition">
-          Get in Touch
+        <button className="mt-8 bg-blue-600 text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-blue-500 transition">
+          Start a Project
         </button>
+
       </div>
+
     </section>
   );
 };
