@@ -67,8 +67,9 @@ const Services = () => {
   }, [isAutoPlaying, services.length]);
 
   return (
-    <section className="py-24 mb-20 font-sans">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-24 mb-20 font-sans relative isolate">
+      <div className="max-w-7xl mx-auto px-6 relative z-0">
+
         {/* HEADER */}
         <div className="max-w-2xl mb-20">
           <p className="text-blue-600 text-xs font-bold tracking-widest uppercase mb-3">
@@ -84,21 +85,23 @@ const Services = () => {
 
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
+
           {services.map((service, index) => {
             const isActive = activeIndex === index;
 
             return (
               <div
                 key={index}
+                className="relative group"
                 onMouseEnter={() => {
                   setIsAutoPlaying(false);
                   setActiveIndex(index);
                 }}
                 onMouseLeave={() => setIsAutoPlaying(true)}
-                className="relative"
               >
+
                 {/* ICON */}
-                <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-10">
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-20">
                   <div
                     className={`
                       w-24 h-24 rounded-full flex items-center justify-center text-white
@@ -117,9 +120,10 @@ const Services = () => {
                     pt-20 pb-10 px-8 text-center
                     border-4 rounded-[80px]
                     transition-all duration-300
+                    will-change-transform
                     ${
                       isActive
-                        ? "border-blue-600 bg-white border-8 shadow-xl scale-105 -translate-y-2"
+                        ? "border-blue-600 bg-white shadow-xl scale-105 -translate-y-2 z-10"
                         : "border-blue-400 bg-transparent border-2"
                     }
                   `}
@@ -145,9 +149,11 @@ const Services = () => {
                     ))}
                   </div>
                 </div>
+
               </div>
             );
           })}
+
         </div>
       </div>
     </section>

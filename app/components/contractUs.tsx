@@ -79,7 +79,7 @@ const ContractUs = () => {
 <div className="lg:col-span-4 space-y-6">
 
   {/* TOP: DARK CONTACT CARD */}
-  <div className="bg-linear-to-br from-black via-zinc-900 to-black rounded-3xl p-8 text-white shadow-2xl shadow-black/60 border border-white/10">
+  <div className="bg-linear-to-br from-black via-zinc-900 to-black rounded-3xl p-8 text-white  border border-white/10">
 
     <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
       <ShieldAlert className="text-blue-400" size={20} />
