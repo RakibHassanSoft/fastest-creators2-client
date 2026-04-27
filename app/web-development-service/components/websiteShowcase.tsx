@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { images } from "../images/image";
 
 /* ---------------- CARD ---------------- */
 const Card = ({ src }: { src: string }) => {
@@ -14,7 +13,7 @@ const Card = ({ src }: { src: string }) => {
   const [maxScroll, setMaxScroll] = useState(0);
   const [ready, setReady] = useState(false);
 
-  const SPEED = 0.4; // 🔥 SAME SPEED FOR ALL CARDS
+  const SPEED = 0.4; // same speed for all cards
 
   const calculate = () => {
     if (!containerRef.current || !imgRef.current) return;
@@ -38,13 +37,11 @@ const Card = ({ src }: { src: string }) => {
     const animate = () => {
       let next = posRef.current + dirRef.current * SPEED;
 
-      // 🔒 TOP LIMIT
       if (next <= 0) {
         next = 0;
         dirRef.current = 1;
       }
 
-      // 🔒 BOTTOM LIMIT
       if (next >= maxScroll) {
         next = maxScroll;
         dirRef.current = -1;
@@ -60,7 +57,6 @@ const Card = ({ src }: { src: string }) => {
     };
 
     frame = requestAnimationFrame(animate);
-
     return () => cancelAnimationFrame(frame);
   }, [ready, maxScroll]);
 
@@ -70,10 +66,7 @@ const Card = ({ src }: { src: string }) => {
       {/* VIEWPORT */}
       <div
         ref={containerRef}
-        className="
-          relative overflow-hidden
-          h-[60vw] sm:h-[60vh] md:h-[34rem]
-        "
+        className="relative overflow-hidden h-[60vw] sm:h-[60vh] md:h-[34rem]"
       >
         <div
           ref={imgRef}
@@ -103,7 +96,22 @@ const Card = ({ src }: { src: string }) => {
 
 /* ---------------- MAIN ---------------- */
 const WebsiteShowcase = () => {
+  const [images, setImages] = useState<string[]>([]);
   const [visible, setVisible] = useState(6);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      try {
+        const res = await fetch("/image.json");
+        const data = await res.json();
+        setImages(data);
+      } catch (err) {
+        console.error("Failed to load images:", err);
+      }
+    };
+
+    loadImages();
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-6">
