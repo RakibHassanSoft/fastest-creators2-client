@@ -115,34 +115,44 @@ const ApifyServices = () => {
 
         {platformScrapers.map((item, i) => (
           <div
-            key={i}
-            className="aspect-square border border-gray-200 rounded-2xl p-6 flex flex-col justify-between hover:border-blue-400 hover:shadow-lg transition"
-          >
+  key={i}
+  className="aspect-square border border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center hover:border-blue-400 hover:shadow-xl transition bg-white"
+>
 
-            {/* HEADER */}
-            <div>
-              <div className="flex items-center gap-3">
-                <item.icon />
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-              </div>
+  {/* ICON (TOP CENTER) */}
+  <div className="w-28  h-28 flex items-center justify-center rounded-2xl bg-blue-50 text-blue-600 shadow-sm">
+    <item.icon />
+  </div>
 
-              {/* LIST */}
-              <ul className="mt-5 space-y-2 text-sm text-gray-600">
-                {item.points.map((p, idx) => (
-                  <li key={idx} className="flex gap-2">
-                    <span className="text-blue-600">•</span>
-                    {p}
-                  </li>
-                ))}
-              </ul>
-            </div>
+  {/* TITLE */}
+  <h3 className="text-lg font-semibold mt-4">
+    {item.title}
+  </h3>
 
-            {/* FOOTER BADGE */}
-            <div className="text-xs text-gray-400">
-              Apify Powered System
-            </div>
+  {/* STEP LIST */}
+  <ul className="mt-5 space-y-3 text-sm text-gray-600 text-left w-full">
 
-          </div>
+    {item.points.map((p, idx) => (
+      <li key={idx} className="flex items-start gap-2">
+
+        {/* step number */}
+        <span className="min-w-5 text-xs font-semibold text-blue-600">
+          {String(idx + 1).padStart(2, "0")}.
+        </span>
+
+        <span className="leading-relaxed">{p}</span>
+
+      </li>
+    ))}
+
+  </ul>
+
+  {/* FOOTER BADGE */}
+  <div className="mt-auto text-[11px] text-gray-400 pt-4">
+    Apify Powered System
+  </div>
+
+</div>
         ))}
 
         {/* MORE CARD */}
