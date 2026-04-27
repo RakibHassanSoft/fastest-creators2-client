@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CheckCircle2, ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 /* ---------------- SVG ICONS ---------------- */
 
@@ -216,105 +217,201 @@ const DigitalMarketingPage = () => {
       </section>
 
       {/* PROCESS / HOW WE WORK */}
-<section className="py-20 bg-white">
-  <div className="max-w-6xl mx-auto px-6">
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* HEADER */}
+          <div className="text-center mb-14">
+            <p className="text-blue-600 text-xs font-bold uppercase tracking-widest mb-3">
+              Our Process
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              How We Scale Your Ads Professionally
+            </h2>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+              We follow a proven, data-driven process to ensure consistent
+              growth, better ROI, and scalable advertising performance.
+            </p>
+          </div>
+
+          {/* STEPS */}
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Research & Strategy",
+                desc: "We analyze your business, competitors, and audience to build a strong ad strategy.",
+              },
+              {
+                title: "Creative Production",
+                desc: "We design high-converting creatives, ad copies, and visuals tailored for each platform.",
+              },
+              {
+                title: "Campaign Launch",
+                desc: "We launch and structure campaigns with proper targeting, budget allocation, and tracking.",
+              },
+              {
+                title: "Optimization & Scaling",
+                desc: "We continuously optimize ads, reduce cost, and scale profitable campaigns.",
+              },
+            ].map((step, i) => (
+              <div
+                key={i}
+                className="relative p-6 rounded-2xl border border-gray-200 bg-white hover:shadow-xl hover:border-blue-500 transition"
+              >
+                {/* NUMBER */}
+                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold mb-4">
+                  {i + 1}
+                </div>
+
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {step.title}
+                </h3>
+
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* EXTRA TRUST LINE */}
+          <div className="mt-14 text-center">
+            <p className="text-sm text-gray-500">
+              ✔ Data-driven decisions • ✔ Continuous testing • ✔ ROI-focused
+              execution
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CASE STUDIES */}
+<section className="py-24 bg-white">
+  <div className="max-w-7xl mx-auto px-6">
 
     {/* HEADER */}
-    <div className="text-center mb-14">
+    <div className="text-center mb-16">
       <p className="text-blue-600 text-xs font-bold uppercase tracking-widest mb-3">
-        Our Process
+        Case Studies
       </p>
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-        How We Scale Your Ads Professionally
+        Before vs After — Real Campaign Improvements
       </h2>
       <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-        We follow a proven, data-driven process to ensure consistent growth,
-        better ROI, and scalable advertising performance.
+        We fix broken ad systems and turn them into scalable revenue machines.
       </p>
     </div>
 
-    {/* STEPS */}
-    <div className="grid md:grid-cols-4 gap-8">
+    {/* GRID */}
+    <div className="grid md:grid-cols-3 gap-8">
 
       {[
         {
-          title: "Research & Strategy",
-          desc: "We analyze your business, competitors, and audience to build a strong ad strategy.",
+          title: "E-commerce Brand",
+          img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200",
+          before: ["CTR 0.8%", "CPC $1.20", "No retargeting"],
+          after: ["CTR 2.9%", "CPC $0.45", "Retargeting system"],
         },
         {
-          title: "Creative Production",
-          desc: "We design high-converting creatives, ad copies, and visuals tailored for each platform.",
+          title: "Local Service Business",
+          img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200",
+          before: ["No tracking", "Bad targeting", "Low leads"],
+          after: ["Full tracking", "Laser targeting", "3x leads"],
         },
         {
-          title: "Campaign Launch",
-          desc: "We launch and structure campaigns with proper targeting, budget allocation, and tracking.",
+          title: "SaaS Startup",
+          img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
+          before: ["No funnel", "Broad ads", "Low ROAS"],
+          after: ["Full funnel", "Segmented ads", "ROAS 4.2x"],
         },
-        {
-          title: "Optimization & Scaling",
-          desc: "We continuously optimize ads, reduce cost, and scale profitable campaigns.",
-        },
-      ].map((step, i) => (
+      ].map((item, i) => (
         <div
           key={i}
-          className="relative p-6 rounded-2xl border border-gray-200 bg-white hover:shadow-xl hover:border-blue-500 transition"
+          className="rounded-3xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:shadow-2xl transition"
         >
 
-          {/* NUMBER */}
-          <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold mb-4">
-            {i + 1}
+          {/* IMAGE FIXED (IMPORTANT FOR TS) */}
+          <div className="relative w-full h-52">
+            <Image
+              src={item.img}
+              alt={item.title}
+              fill
+              className="object-cover hover:scale-105 transition duration-500"
+            />
           </div>
 
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            {step.title}
-          </h3>
+          {/* CONTENT */}
+          <div className="p-6">
 
-          <p className="text-sm text-gray-600 leading-relaxed">
-            {step.desc}
-          </p>
+            <h3 className="text-lg font-bold text-gray-900 mb-5">
+              {item.title}
+            </h3>
 
+            {/* BEFORE */}
+            <div className="mb-5">
+              <p className="text-xs font-bold text-red-500 uppercase mb-2">
+                Before
+              </p>
+              <div className="space-y-2">
+                {item.before.map((b, idx) => (
+                  <div
+                    key={idx}
+                    className="text-sm text-gray-600 bg-red-50 px-3 py-2 rounded-lg"
+                  >
+                    {b}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* AFTER */}
+            <div>
+              <p className="text-xs font-bold text-green-600 uppercase mb-2">
+                After
+              </p>
+              <div className="space-y-2">
+                {item.after.map((a, idx) => (
+                  <div
+                    key={idx}
+                    className="text-sm text-gray-700 bg-green-50 px-3 py-2 rounded-lg"
+                  >
+                    {a}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       ))}
-
     </div>
-
-    {/* EXTRA TRUST LINE */}
-    <div className="mt-14 text-center">
-      <p className="text-sm text-gray-500">
-        ✔ Data-driven decisions • ✔ Continuous testing • ✔ ROI-focused execution
-      </p>
-    </div>
-
   </div>
 </section>
 
-{/* FAQ */}
+{/* FAQ (IMPROVED PREMIUM UI) */}
 <section className="py-24 bg-linear-to-b from-white to-gray-50">
   <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
 
-    {/* LEFT SIDE */}
+    {/* LEFT */}
     <div>
       <p className="text-blue-600 text-xs font-bold uppercase tracking-widest mb-3">
         FAQ
       </p>
 
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-        Answers to Your Most Common Questions
+        Everything You Need to Know
       </h2>
 
       <p className="text-gray-600 mb-8">
-        Everything you need to know about our digital marketing services,
-        campaign process, and results.
+        Clear answers about strategy, budget, timelines, and results.
       </p>
 
-      {/* SMALL TRUST */}
       <div className="space-y-3 text-sm text-gray-500">
-        <p>✔ Transparent pricing</p>
-        <p>✔ ROI-focused campaigns</p>
-        <p>✔ Dedicated support</p>
+        <p>✔ Transparent reporting</p>
+        <p>✔ ROI-focused execution</p>
+        <p>✔ Weekly optimization</p>
       </div>
     </div>
 
-    {/* RIGHT SIDE FAQ */}
+    {/* RIGHT */}
     <div className="space-y-4">
 
       {faqs.map((faq, i) => {
@@ -323,56 +420,48 @@ const DigitalMarketingPage = () => {
         return (
           <div
             key={i}
-            className={`
-              rounded-2xl border transition-all duration-300
-              ${isOpen
-                ? "border-blue-500 bg-white shadow-xl"
-                : "border-gray-200 bg-white hover:border-blue-300 hover:shadow-md"}
-            `}
+            className={`rounded-2xl border transition-all duration-300 ${
+              isOpen
+                ? "border-blue-500 shadow-xl bg-white"
+                : "border-gray-200 bg-white hover:border-blue-300"
+            }`}
           >
-
-            {/* QUESTION */}
             <button
               onClick={() => setOpenIndex(isOpen ? null : i)}
               className="w-full flex items-center justify-between p-5 text-left"
             >
-
-              <span className="font-semibold text-gray-900 pr-4">
+              <span className="font-semibold text-gray-900">
                 {faq.q}
               </span>
 
-              <div className={`
-                w-8 h-8 flex items-center justify-center rounded-full
-                transition-all duration-300
-                ${isOpen
-                  ? "bg-blue-600 text-white rotate-180"
-                  : "bg-gray-100 text-gray-600"}
-              `}>
+              <div
+                className={`w-8 h-8 flex items-center justify-center rounded-full transition ${
+                  isOpen
+                    ? "bg-blue-600 text-white rotate-180"
+                    : "bg-gray-100 text-gray-600"
+                }`}
+              >
                 <ChevronDown size={16} />
               </div>
-
             </button>
 
-            {/* ANSWER */}
             <div
-              className={`
-                overflow-hidden transition-all duration-300
-                ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
-              `}
+              className={`overflow-hidden transition-all duration-300 ${
+                isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+              }`}
             >
-              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
+              <div className="px-5 pb-5 text-sm text-gray-600">
                 {faq.a}
               </div>
             </div>
-
           </div>
         );
       })}
 
     </div>
-
   </div>
 </section>
+
     </div>
   );
 };
