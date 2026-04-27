@@ -4,12 +4,9 @@ import WebsiteHero from './components/WebHero';
 import ContactUs from '../components/contractUs';
 import OurWorks from '../components/OurWorks';
 import PreviousWork from '../components/PreviousWork';
-import { div } from 'framer-motion/client';
 
 const webDevPage = () => {
     return (
-        <div>
-          <WebsiteHero/>
         <div>
         <WebsiteHero/>
         <WebsiteShowcase/>
@@ -18,8 +15,6 @@ const webDevPage = () => {
               <PreviousWork/>
          <ContactUs/>
         </div>
-        </div>
-        
     );
 };
 
