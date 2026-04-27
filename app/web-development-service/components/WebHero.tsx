@@ -27,7 +27,7 @@ const WebsiteHero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen mx-auto max-w-7xl bg-white text-black overflow-hidden pt-24 lg:pt-32">
+    <section className="relative min-h-screen mx-auto  bg-white text-black overflow-hidden pt-24 lg:pt-32">
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
