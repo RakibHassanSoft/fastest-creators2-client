@@ -8,7 +8,7 @@ const WebsiteHero: React.FC = () => {
     {
       name: "SaaS Dashboard",
       type: "SaaS",
-      img: "https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&w=900&q=80",
+      img: "https://res.cloudinary.com/dvdyfyryz/image/upload/v1777280211/unnamed_zyzqir.png",
     },
     {
       name: "LMS Learning Platform",
@@ -48,7 +48,7 @@ const WebsiteHero: React.FC = () => {
     {
       name: "CRM Dashboard",
       type: "CRM",
-      img: "https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&w=900&q=80",
+      img: "https://res.cloudinary.com/dvdyfyryz/image/upload/v1777280156/pipedrive-crm-dashboard-power-bi_qfamng.png",
     },
     {
       name: "Fintech Analytics App",

@@ -32,14 +32,14 @@ const ContractUs = () => {
                 <ShieldCheck size={14} />
                 Our Founder&lsquo;s Promise
               </div>
-              <h1 className="text-5xl font-black tracking-tight text-gray-900 leading-[1.1]">
+              <h1 className="text-4xl font-black tracking-tight text-gray-900 leading-[1.1]">
                 I check every step, <br />
                 <span className="text-blue-600">so you don&lsquo;t have to.</span>
               </h1>
             </header>
 
             <div className="relative">
-              <div className="absolute -left-6 top-0 bottom-0 w-1 bg-blue-600 rounded-full" />
+              <div className="absolute -left-6 top-0 bottom-0 w-1 bg-blue-900 rounded-full" />
               <p className="text-2xl font-medium text-gray-600 leading-relaxed max-w-2xl italic">
                 &rdquo;I personally watch over every part of your project. From the very first day until we hand you the final product, I&apos;m there to make sure everything is perfect.&rdquo;
               </p>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import {
   ShieldCheck,
@@ -7,22 +8,11 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-/* =========================
-   TYPE DEFINITIONS
-========================= */
-type Work = {
-  id: number;
-  title: string;
-  experience: string;
-  challenge: string;
-  solution: string;
-  icon: React.ReactNode;
-};
 
 /* =========================
    CARD COMPONENT
 ========================= */
-const WorkCard = ({ work, index }: { work: Work; index: number }) => {
+const WorkCard = ({ work, index }: { work: any; index: number }) => {
   const isOdd = (index + 1) % 2 !== 0;
 
   return (
@@ -30,93 +20,89 @@ const WorkCard = ({ work, index }: { work: Work; index: number }) => {
       className="sticky top-[15vh] w-full h-80"
       style={{ zIndex: index + 1 }}
     >
-      <div className="w-full h-full bg-white border-gray-100 overflow-hidden flex flex-col md:flex-row group ">
-        
-        {/* Left Side */}
+      <div className="w-full h-full bg-white border border-gray-200 overflow-hidden flex flex-col md:flex-row group shadow-sm hover:shadow-xl transition-all duration-500 rounded-2xl">
+
+        {/* LEFT PANEL */}
         <div
-          className={`w-full md:w-1/3 p-10 flex flex-col justify-between text-white relative transition-colors duration-500 ${
-            isOdd
-              ? "bg-linear-to-br from-black to-white"
-              : "bg-linear-to-br from-blue-600 to-white"
+          className={`w-full md:w-1/3 p-8 flex flex-col justify-between relative ${
+            isOdd ? "bg-gray-950 text-white" : "bg-blue-600 text-white"
           }`}
         >
-          <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-white/10 pointer-events-none" />
+          {/* subtle overlay */}
+          <div className="absolute inset-0 opacity-10 bg-linear-to-br from-white/10 to-transparent" />
 
-          <div className="relative z-10">
-            <div
-              className={`w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-xl ${
-                isOdd ? "text-black" : "text-blue-600"
-              }`}
-            >
+          <div className="relative z-10 space-y-6">
+
+            {/* ICON */}
+            <div className="w-12 h-12 bg-white/15 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20">
               {work.icon}
             </div>
 
-            <span
-              className={`${
-                isOdd ? "text-gray-400" : "text-blue-100"
-              } uppercase tracking-widest text-2xl font-black opacity-80`}
-            >
+            {/* PROJECT ID */}
+            <div className="text-xs tracking-[0.3em] uppercase opacity-70">
               Project 0{index + 1}
-            </span>
+            </div>
 
-            <h3 className="text-2xl  mt-2 leading-tight">
+            {/* TITLE */}
+            <h3 className="text-xl md:text-2xl font-semibold leading-snug">
               {work.title}
             </h3>
+
+            {/* TAGLINE (optional feeling line) */}
+            <p className="text-xs opacity-70 leading-relaxed">
+              Case study overview & execution breakdown
+            </p>
           </div>
         </div>
 
-        {/* Right Side */}
-        <div className="w-full md:w-2/3 p-8 md:p-12 bg-white flex flex-col justify-center space-y-8 relative">
-          <div className="absolute inset-0 bg-white -z-10" />
+        {/* RIGHT PANEL */}
+        <div className="w-full md:w-2/3 p-6 md:p-10 bg-white flex flex-col justify-center gap-6">
 
-          <div className="space-y-2">
-            <h4
-              className={`${
-                isOdd ? "text-gray-400" : "text-blue-600"
-              } font-bold text-xs uppercase tracking-wider`}
-            >
-              The Experience
+          {/* EXPERIENCE */}
+          <div>
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
+              Overview
             </h4>
-            <p className="text-black text-xl font-medium leading-relaxed">
+            <p className="text-gray-900 text-base md:text-lg leading-relaxed font-medium">
               {work.experience}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-5 bg-gray-50 rounded-2xl border border-gray-100">
-              <h4 className="text-gray-400 font-bold text-[10px] uppercase mb-2">
+          {/* GRID SECTIONS */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+            {/* CHALLENGE */}
+            <div className="p-5 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition">
+              <h4 className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">
                 Challenge
               </h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-sm text-gray-700 leading-relaxed">
                 {work.challenge}
               </p>
             </div>
 
+            {/* SOLUTION */}
             <div
-              className={`p-5 rounded-2xl border ${
+              className={`p-5 rounded-xl border transition ${
                 isOdd
-                  ? "bg-gray-100/50 border-gray-200"
-                  : "bg-blue-50/50 border-blue-100"
+                  ? "bg-blue-50 border-blue-100"
+                  : "bg-gray-50 border-gray-200"
               }`}
             >
-              <h4
-                className={`font-bold text-[10px] uppercase mb-2 ${
-                  isOdd ? "text-black" : "text-blue-600"
-                }`}
-              >
-                Our Solution
+              <h4 className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">
+                Solution
               </h4>
-              <p className="text-gray-700 text-sm leading-relaxed font-medium">
+              <p className="text-sm text-gray-700 leading-relaxed">
                 {work.solution}
               </p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
 };
-
 /* =========================
    MAIN COMPONENT
 ========================= */

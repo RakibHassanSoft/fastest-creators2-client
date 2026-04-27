@@ -1,105 +1,141 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { images } from "../images/image";
 
-type TemplateCategory = {
-  id: number;
-  title: string;
-  previews: string[];
-};
+/* ---------------- CARD ---------------- */
+const Card = ({ src }: { src: string }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
 
-const categories: TemplateCategory[] = [
-  {
-    id: 1,
-    title: "SaaS Samples",
-    previews: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=500",
-    ],
-  },
-  {
-    id: 2,
-    title: "Agency Samples",
-    previews: [
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=500",
-    ],
-  },
-  {
-    id: 3,
-    title: "Portfolio Samples",
-    previews: [
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=500",
-    ],
-  },
-  {
-    id: 4,
-    title: "E-Commerce Samples",
-    previews: [
-      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=500",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=500",
-    ],
-  },
-];
+  const posRef = useRef(0);
+  const dirRef = useRef(1);
 
-const WebsiteShowcase = () => {
+  const [maxScroll, setMaxScroll] = useState(0);
+  const [ready, setReady] = useState(false);
+
+  const SPEED = 0.4; // 🔥 SAME SPEED FOR ALL CARDS
+
+  const calculate = () => {
+    if (!containerRef.current || !imgRef.current) return;
+
+    const containerH = containerRef.current.offsetHeight;
+    const imgH = imgRef.current.scrollHeight;
+
+    const diff = Math.max(0, imgH - containerH);
+
+    setMaxScroll(diff);
+    posRef.current = 0;
+    dirRef.current = 1;
+    setReady(true);
+  };
+
+  useEffect(() => {
+    if (!ready) return;
+
+    let frame: number;
+
+    const animate = () => {
+      let next = posRef.current + dirRef.current * SPEED;
+
+      // 🔒 TOP LIMIT
+      if (next <= 0) {
+        next = 0;
+        dirRef.current = 1;
+      }
+
+      // 🔒 BOTTOM LIMIT
+      if (next >= maxScroll) {
+        next = maxScroll;
+        dirRef.current = -1;
+      }
+
+      posRef.current = next;
+
+      if (imgRef.current) {
+        imgRef.current.style.transform = `translateY(-${next}px)`;
+      }
+
+      frame = requestAnimationFrame(animate);
+    };
+
+    frame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(frame);
+  }, [ready, maxScroll]);
+
   return (
-    <div className="max-w-6xl mx-auto py-16 px-6">
-      {/* Header */}
-      <div className="text-center mb-14">
-        <h1 className="text-3xl md:text-5xl font-bold text-slate-900">
-          Samples <span className="text-blue-600">Showcase</span>
-        </h1>
-        <p className="text-gray-500 mt-4">
-          Clean categories of modern website Samples
-        </p>
+    <div className="rounded-2xl border border-blue-600 bg-white shadow-md hover:shadow-xl transition flex flex-col overflow-hidden">
+
+      {/* VIEWPORT */}
+      <div
+        ref={containerRef}
+        className="
+          relative overflow-hidden
+          h-[60vw] sm:h-[60vh] md:h-[34rem]
+        "
+      >
+        <div
+          ref={imgRef}
+          className="will-change-transform"
+        >
+          <Image
+            src={src}
+            alt="preview"
+            width={900}
+            height={3000}
+            className="w-full h-auto block"
+            onLoadingComplete={calculate}
+          />
+        </div>
       </div>
 
-      {/* Rows */}
-      <div className="space-y-14">
-        {categories.map((category) => (
-          <div key={category.id}>
-            {/* Title */}
-            <h2 className="text-lg font-semibold text-slate-800 mb-4">
-              {category.title}
-            </h2>
+      {/* BUTTON */}
+      <div className="p-3 sm:p-4 mt-auto">
+        <button className="w-full bg-blue-600 text-white py-2 sm:py-3 rounded-xl hover:bg-blue-700 transition">
+          Contact Now
+        </button>
+      </div>
 
-            {/* Image Row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {category.previews.map((img, idx) => (
-                <div
-                  key={idx}
-                  className="relative h-96 overflow-hidden rounded-xl border border-gray-200 bg-gray-100"
-                >
-                  <Image
-                    src={img}
-                    alt={`${category.title} ${idx + 1}`}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+    </div>
+  );
+};
+
+/* ---------------- MAIN ---------------- */
+const WebsiteShowcase = () => {
+  const [visible, setVisible] = useState(6);
+
+  return (
+    <div className="max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-6">
+
+      {/* TITLE */}
+      <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-10 sm:mb-14">
+        Sample <span className="text-blue-600">Websites</span>
+      </h1>
+
+      {/* GRID */}
+      <div className="
+        grid gap-5 sm:gap-8
+        grid-cols-1
+        sm:grid-cols-2
+        lg:grid-cols-3
+      ">
+        {images.slice(0, visible).map((img, i) => (
+          <Card key={i} src={img} />
         ))}
       </div>
 
+      {/* LOAD MORE */}
+      {visible < images.length && (
+        <div className="flex justify-center mt-8 sm:mt-10">
+          <button
+            onClick={() => setVisible((v) => v + 6)}
+            className="px-6 sm:px-8 py-2 sm:py-3 bg-black text-white rounded-xl hover:bg-gray-800 transition text-sm sm:text-base"
+          >
+            See More
+          </button>
+        </div>
+      )}
 
     </div>
   );
