@@ -10,8 +10,6 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Team", href: "/teams" },
     {
       name: "Services",
       href: "/services",
@@ -21,6 +19,9 @@ const Navbar = () => {
         { name: "apify development", href: "/apify-development" },
       ],
     },
+    { name: "About", href: "/about" },
+    { name: "Team", href: "/teams" },
+    
     { name: "Contact", href: "/contact" },
   ];
 
