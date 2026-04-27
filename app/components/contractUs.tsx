@@ -75,94 +75,124 @@ const ContractUs = () => {
           </div>
 
           {/* Right Column: Blue Contact Section */}
-          <div className="lg:col-span-4 space-y-6">
-            <div className="bg-blue-600 rounded-3xl p-8 text-white shadow-2xl shadow-blue-200">
-              <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
-                <ShieldAlert className="text-blue-100" size={20} /> Get in Touch
-              </h3>
-              
-              <div className="space-y-4">
-                {/* Email Option */}
-                <a 
-                  href="mailto:legal@premium.com"
-                  className="flex items-center gap-4 p-4 bg-white/10 rounded-2xl border border-white/10 hover:bg-white/20 transition-all group"
-                >
-                  <div className="bg-white p-3 rounded-xl group-hover:scale-110 transition-transform shadow-lg shadow-blue-800/20">
-                    <Mail className="text-blue-600" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black text-blue-100 uppercase tracking-widest opacity-80">Send an Email</p>
-                    <p className="font-bold text-white">Contract by Email</p>
-                  </div>
-                </a>
+         {/* Right Column: Contact Section */}
+<div className="lg:col-span-4 space-y-6">
 
-                {/* WhatsApp Option */}
-                <a 
-                  href="https://wa.me/yournumber"
-                  className="flex items-center gap-4 p-4 bg-white/10 rounded-2xl border border-white/10 hover:bg-green-500/20 transition-all group"
-                >
-                  <div className="bg-green-500 p-3 rounded-xl group-hover:scale-110 transition-transform shadow-lg shadow-green-900/20">
-                    <WhatsAppIcon className="text-white w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black text-green-100 uppercase tracking-widest opacity-80">Quick Message</p>
-                    <p className="font-bold text-white">Direct WhatsApp</p>
-                  </div>
-                </a>
-              </div>
+  {/* TOP: DARK CONTACT CARD */}
+  <div className="bg-linear-to-br from-black via-zinc-900 to-black rounded-3xl p-8 text-white shadow-2xl shadow-black/60 border border-white/10">
 
-              <div className="mt-8 pt-8 border-t border-white/10 text-center">
-                <p className="text-[10px] text-blue-100 font-bold uppercase tracking-widest mb-4 opacity-60">Your data is safe</p>
-                <div className="flex justify-center gap-4 opacity-40">
-                  <ShieldCheck size={24} />
-                  <Award size={24} />
-                  <Fingerprint size={24} />
-                </div>
-              </div>
-            </div>
+    <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
+      <ShieldAlert className="text-blue-400" size={20} />
+      Get in Touch
+    </h3>
 
-            {/* Redesigned Project Details - More Relevant Data */}
-            <div className="p-8 bg-gray-50 border border-gray-100 rounded-3xl space-y-6">
-              <h4 className="text-xs font-black uppercase tracking-tighter text-gray-400 mb-2">Project Standards</h4>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="mt-1"><Zap size={14} className="text-blue-600" /></div>
-                  <div>
-                    <p className="text-xs font-bold text-gray-900">Priority Response</p>
-                    <p className="text-[11px] text-gray-500">Replies within 2 business hours</p>
-                  </div>
-                </div>
+    <div className="space-y-4">
 
-                <div className="flex items-start gap-3">
-                  <div className="mt-1"><CalendarCheck size={14} className="text-blue-600" /></div>
-                  <div>
-                    <p className="text-xs font-bold text-gray-900">Weekly Progress</p>
-                    <p className="text-[11px] text-gray-500">Founder-verified updates sent Friday</p>
-                  </div>
-                </div>
+      {/* EMAIL */}
+      <a
+        href="mailto:legal@premium.com"
+        className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-all group"
+      >
+        <div className="bg-blue-500 p-3 rounded-xl group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/20">
+          <Mail className="text-white" size={20} />
+        </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="mt-1"><PhoneCall size={14} className="text-blue-600" /></div>
-                  <div>
-                    <p className="text-xs font-bold text-gray-900">Founder Direct Line</p>
-                    <p className="text-[11px] text-gray-500">Available for critical build decisions</p>
-                  </div>
-                </div>
-              </div>
+        <div>
+          <p className="text-[10px] font-black text-blue-300 uppercase tracking-widest opacity-70">
+            Send an Email
+          </p>
+          <p className="font-bold text-white">Contact by Email</p>
+        </div>
+      </a>
 
-              <div className="pt-4 border-t border-gray-200">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-blue-600">
-                    <FileText size={14} />
-                    <span className="text-[10px] uppercase font-black tracking-widest">Build Protocol v2.4</span>
-                  </div>
-                  <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" title="Active"></span>
-                </div>
-              </div>
-            </div>
-            
-          </div>
+      {/* WHATSAPP */}
+      <a
+        href="https://wa.me/yournumber"
+        className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-green-500/10 transition-all group"
+      >
+        <div className="bg-green-500 p-3 rounded-xl group-hover:scale-110 transition-transform shadow-lg shadow-green-500/20">
+          <WhatsAppIcon className="text-white w-5 h-5" />
+        </div>
+
+        <div>
+          <p className="text-[10px] font-black text-green-300 uppercase tracking-widest opacity-70">
+            Quick Message
+          </p>
+          <p className="font-bold text-white">Direct WhatsApp</p>
+        </div>
+      </a>
+
+    </div>
+
+    {/* SAFETY FOOTER */}
+    <div className="mt-8 pt-8 border-t border-white/10 text-center">
+
+      <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4 opacity-60">
+        Your data is safe
+      </p>
+
+      <div className="flex justify-center gap-4 text-white/40">
+        <ShieldCheck size={24} />
+        <Award size={24} />
+        <Fingerprint size={24} />
+      </div>
+
+    </div>
+  </div>
+
+  {/* BOTTOM: WHITE PROJECT STANDARDS */}
+  <div className="p-8 bg-white border border-gray-200 rounded-3xl space-y-6 shadow-lg">
+
+    <h4 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-2">
+      Project Standards
+    </h4>
+
+    <div className="space-y-4">
+
+      <div className="flex items-start gap-3">
+        <Zap size={14} className="text-blue-600 mt-1" />
+        <div>
+          <p className="text-xs font-bold text-gray-900">Priority Response</p>
+          <p className="text-[11px] text-gray-500">Replies within 2 business hours</p>
+        </div>
+      </div>
+
+      <div className="flex items-start gap-3">
+        <CalendarCheck size={14} className="text-blue-600 mt-1" />
+        <div>
+          <p className="text-xs font-bold text-gray-900">Weekly Progress</p>
+          <p className="text-[11px] text-gray-500">Founder-verified updates sent Friday</p>
+        </div>
+      </div>
+
+      <div className="flex items-start gap-3">
+        <PhoneCall size={14} className="text-blue-600 mt-1" />
+        <div>
+          <p className="text-xs font-bold text-gray-900">Founder Direct Line</p>
+          <p className="text-[11px] text-gray-500">Available for critical build decisions</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div className="pt-4 border-t border-gray-200">
+      <div className="flex items-center justify-between">
+
+        <div className="flex items-center gap-2 text-blue-600">
+          <FileText size={14} />
+          <span className="text-[10px] uppercase font-black tracking-widest">
+            Build Protocol v2.4
+          </span>
+        </div>
+
+        <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
           
         </div>
          {/* Call to Action */}
